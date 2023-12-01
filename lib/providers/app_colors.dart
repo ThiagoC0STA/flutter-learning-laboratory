@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   // Tema Claro
-  static const Color greyColor = Color(0xFFEEEEEE);
+  static const Color greyColor = Color.fromRGBO(238, 238, 238, 1);
   static const Color darkGreyColor = Color(0xFFF4F6F8);
   static const Color redColor = Color(0xFFDA0D33);
   static const Color purpleColor = Color(0xFF3C2EA6);

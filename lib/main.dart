@@ -39,25 +39,34 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primaryColor: AppColors.primaryColor,
-        colorScheme: const ColorScheme.light(
-          background: AppColors.greyColor,
-          onBackground: AppColors.textColor,
-        ),
-        textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: AppColors.textColor),
-        ),
-      ),
+          fontFamily: "Montserrat",
+          primaryColor: AppColors.primaryColor,
+          colorScheme: const ColorScheme.light(
+            primaryContainer: AppColors.greyColor,
+            secondaryContainer: AppColors.whiteColor,
+            outline: AppColors.greyBorderLight,
+          ),
+          primaryTextTheme: const TextTheme(
+            bodyLarge: TextStyle(color: AppColors.textColor),
+          ),
+          dividerTheme: const DividerThemeData(color: AppColors.greyTextColor)),
+
+      // ----------------------------------------------------------------
+      // --------------------DARK MODE BELOW-----------------------------
+      // ----------------------------------------------------------------
+
       darkTheme: ThemeData(
-        primaryColor: AppColors.primaryColorDark,
-        colorScheme: const ColorScheme.dark(
-          background: AppColors.greyColorDark,
-          onBackground: AppColors.textColorDark,
-        ),
-        textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: AppColors.textColorDark),
-        ),
-      ),
+          fontFamily: "Montserrat",
+          primaryColor: AppColors.primaryColorDark,
+          colorScheme: const ColorScheme.dark(
+            primaryContainer: AppColors.greyColorDark,
+            secondaryContainer: AppColors.whiteColorDark,
+            outline: AppColors.greyBorderLight,
+          ),
+          primaryTextTheme: const TextTheme(
+            bodyLarge: TextStyle(color: AppColors.textColorDark),
+          ),
+          dividerTheme: const DividerThemeData(color: AppColors.greyTextColor)),
       themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       home: isAuthenticated ? const MainPage() : LoginPage(onLogin: login),
     );
