@@ -3,9 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:lab/pages/home.dart';
 import 'package:lab/pages/login.dart';
+import 'package:lab/providers/app_colors.dart';
+import 'package:lab/providers/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -26,7 +34,31 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+
     return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primaryColor: AppColors.primaryColor,
+        colorScheme: const ColorScheme.light(
+          background: AppColors.greyColor,
+          onBackground: AppColors.textColor,
+        ),
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: AppColors.textColor),
+        ),
+      ),
+      darkTheme: ThemeData(
+        primaryColor: AppColors.primaryColorDark,
+        colorScheme: const ColorScheme.dark(
+          background: AppColors.greyColorDark,
+          onBackground: AppColors.textColorDark,
+        ),
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: AppColors.textColorDark),
+        ),
+      ),
+      themeMode: themeProvider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
       home: isAuthenticated ? const MainPage() : LoginPage(onLogin: login),
     );
   }

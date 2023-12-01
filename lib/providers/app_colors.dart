@@ -1,0 +1,74 @@
+import 'package:flutter/material.dart';
+
+class AppColors {
+  // Tema Claro
+  static const Color greyColor = Color(0xFFEEEEEE);
+  static const Color darkGreyColor = Color(0xFFF4F6F8);
+  static const Color redColor = Color(0xFFDA0D33);
+  static const Color purpleColor = Color(0xFF3C2EA6);
+  static const Color whiteColor = Color(0xFFFFFFFF);
+  static const Color lightColor = Color(0xFF3F5361);
+  static const Color lightColorGraph = Color(0xFFA9AEB1);
+  static const Color textColor = Color(0xFF171819);
+  static const Color lightBorderColor = Color(0x478B8E91);
+  static const Color chartBackground = Color(0xFFEAF4F8);
+  static const Color dropdownBackground = Color(0xFFF9F9F9);
+  static const Color dropdownHover = Color(0xFFDDDDDD);
+  static const Color footerBackground = Color(0xFF1B1D1E);
+  static const Color cancelBtnColor = Color(0xFF8C969F);
+  static const Color primaryColor = Color(0xFF0055AA);
+  static const Color secondaryColor = Color(0xFF5FA700);
+  static const Color primaryColorGradient = Color(0x8F003D79);
+  static const Color primaryColorHover = Color(0xFF04488D);
+  static const Color secondaryColorDataPicker = Color(0x405FA700);
+  static const Color hoverButtonColor = Color(0xFF0B62B8);
+  static const Color darkGrey = Color(0xFFF1F1F4);
+  static const Color darkGrey700 = Color(0xFFD1D1D1);
+  static const Color tableHoverColor = Color(0xFFDDDDDD);
+  static const Color danger = Color(0xFFDA1414);
+  static const Color warning = Color(0xFFAC7E00);
+  static const Color success = Color(0xFF30B906);
+  static const Color whiteTextColor = Color(0xFFFFFFFF);
+  static const Color whiteBgColor = Color(0xC9FFFFFF);
+  static const Color greyTextColor = Color(0xFF91989E);
+  static const Color hoverTextColor = Color(0xFF000000);
+  static const Color greyBorderLight = Color(0xFFC3C6C8);
+  static const Color greyLight = Color(0xFFF9F9F9);
+  static const Color greyLightCheckbox = Color(0xFFF0F0FB);
+  static const Color cardTableBg = Color(0x8AF6F7F8);
+
+  // Tema Escuro
+  static const Color greyColorDark = Color(0xFF35393D);
+  static const Color darkGreyColorDark = Color(0xFF394148);
+  static const Color redColorDark = Color(0xFFFF5959);
+  static const Color whiteColorDark = Color(0xFF2A2E30);
+  static const Color lightColorDark = Color(0xFFE3EEF9);
+  static const Color lightColorGraphDark = Color(0xFF0D5F0A);
+  static const Color textColorDark = Color(0xFFDEDBDB);
+  static const Color lightBorderColorDark = Color(0x478B8E91);
+  static const Color chartBackgroundDark = Colors.transparent;
+  static const Color dropdownBackgroundDark = Color(0xFF2A2E30);
+  static const Color dropdownHoverDark = Color(0xFF212121);
+  static const Color footerBackgroundDark = Color(0xFF111213);
+  static const Color primaryColorDark = Color(0xFF519E04);
+  static const Color primaryColorGradientDark = Color(0x7E2B4B01);
+  static const Color secondaryColorDark = Color(0xFF0055AA);
+  static const Color primaryColorHoverDark = Color(0xFF498F09);
+  static const Color secondaryColorDataPickerDark = Color(0x5B333333);
+  static const Color hoverButtonColorDark = Color(0xFF8FC50C);
+  static const Color cancelBtnColorDark = Color(0xFF51585C);
+  static const Color dangerDark = Color(0xFFDD2424);
+  static const Color warningDark = Color(0xFFB98108);
+  static const Color successDark = Color(0xFF1EA564);
+  static const Color darkGreyDark = Color(0xFF373B3D);
+  static const Color darkGrey700Dark = Color(0xFF545454);
+  static const Color tableHoverColorDark = Color(0xFF313131);
+  static const Color whiteTextColorDark = Color(0xFFEBEBEB);
+  static const Color whiteBgColorDark = Color(0xB82A2E30);
+  static const Color greyTextColorDark = Color(0xFFA1AEAE);
+  static const Color hoverTextColorDark = Color(0xFF929EA7);
+  static const Color greyLightDark = Color(0xFF394148);
+  static const Color greyLightCheckboxDark = Color(0xFF394148);
+  static const Color greyBorderLightDark = Color(0xFF5C6A76);
+  static const Color cardTableBgDark = Color(0xFF2F3336);
+}

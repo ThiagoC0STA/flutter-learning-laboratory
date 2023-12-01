@@ -5,10 +5,15 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Main Page')),
-      body: const Center(
-        child: Text('Bem-vindo à Página Principal!'),
+    return const Scaffold(
+      body: Padding(
+        padding: EdgeInsets.only(top: 120, right: 30, left: 30),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[Text("Bem vindo!!!")],
+          ),
+        ),
       ),
     );
   }
