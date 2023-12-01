@@ -1,33 +1,93 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
-import 'package:lab/pages/home.dart';
-import 'package:lab/pages/login.dart';
+import '../offline_services/databaseHelper.dart';
+import '../offline_services/taskOffline.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  late TextEditingController _taskController;
+  late List<Task> _tasks;
 
   @override
-  _MyAppState createState() => _MyAppState();
-}
+  void initState() {
+    super.initState();
+    _taskController = TextEditingController();
+    _tasks = [];
+    _loadTasks();
+  }
 
-class _MyAppState extends State<MyApp> {
-  bool isAuthenticated = false;
-
-  void login() {
+  Future<void> _loadTasks() async {
+    List<Task> tasks = await DatabaseHelper().getTasks();
     setState(() {
-      isAuthenticated = true;
+      _tasks = tasks;
     });
+  }
+
+  Future<void> _addTask() async {
+    String taskName = _taskController.text.trim();
+    if (taskName.isNotEmpty) {
+      Task newTask = Task(name: taskName, completed: false);
+      await DatabaseHelper().insertTask(newTask);
+      _taskController.clear();
+      _loadTasks();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: isAuthenticated ? const MainPage() : LoginPage(onLogin: login),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('SQFlite Example'),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: _taskController,
+                    decoration: InputDecoration(labelText: 'Nova Tarefa'),
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(Icons.add),
+                  onPressed: _addTask,
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _tasks.length,
+              itemBuilder: (context, index) {
+                Task task = _tasks[index];
+                return ListTile(
+                  title: Text(task.name),
+                  trailing: task.completed ? Icon(Icons.check_box) : null,
+                );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
